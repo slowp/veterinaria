@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{%block content%}
+	{% if object_list %}
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Nombre</td>
+				<td>Edad</td>
+				<td>Fecha de ingreso</td>
+			</tr>
+		</thead>
+		<tbody>
+		
+			{% for animal in object_list %}
+				<tr>
+					<td>{{animal.id}}</td>
+					<td>{{animal.nombre}}</td>
+					<td>{{animal.edad}}</td>
+					<td>{{animal.fecha_ingreso}}</td>
+					<td>
+						<a class="btn btn-primary" href="{% url 'tienda:edt_a' animal.id %}">Editar</a>
+						<a class="btn btn-danger" href="{% url 'tienda:del_a' animal.id %}">Eliminar</a>
+					</td>
+
+				</tr>
+			{% endfor %}
+		
+		</tbody>
+	</table>
+	{% else %}
+		<h1>No existen registros</h1>
+	{% endif %}
+{%endblock%}

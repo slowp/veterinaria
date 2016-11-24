@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+
+{%block content%}
+	<form method="post">
+		{% csrf_token %}
+		<h3>Confirma la operacion de eliminacion de {{cliente.nombre}}</h3>
+		<button type="submit">Eliminar</button>
+	</form>
+{%endblock%}
